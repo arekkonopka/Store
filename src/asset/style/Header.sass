@@ -1,0 +1,412 @@
+.header
+  display: flex
+  align-items: center
+  padding: 40px 10% 40px 5%
+  height: 12vh
+  z-index: 2
+  .logo
+    flex-grow: 0.5
+    display: flex
+    justify-content: center
+    align-items: center
+    p
+      font-family: 'Lobster', cursive
+      margin-left: 15px
+    img
+      width: 30px
+      height: 30px
+  .burger
+    flex-grow: 0.5
+    margin-left: 40px
+    width: 80px
+    height: 50px
+    cursor: pointer
+    border-left: 0.2px solid black
+    border-right: 0.2px solid black
+    display: flex
+    justify-content: center
+    align-items: center
+    .hiddenBurger
+      overflow: hidden
+      position: relative
+      width: 40px
+      height: 40px
+      span
+        position: absolute
+        background-color: black
+        width: 40px
+        height: 0.5px
+        transition: 0.4s
+        &:nth-child(1)
+          top: 4px
+          left: calc(50% - 20px)
+        &:nth-child(2)
+          top: calc(50% - 0.5px)
+          left: calc(50% - 20px)
+        &:nth-child(3)
+          bottom: 4px
+          left: calc(50% - 20px)
+        &:nth-child(4)
+          transition-delay: -0.4s
+          bottom: 4px
+          left: -100%
+      .active1
+        transform: translateX(-100%)
+      .active2
+        transform: rotate(45deg)
+      .active3
+        transform: translateX(100%)
+      .active4
+        transform: translate(100%) rotate(315deg)
+        top: 50%
+  .search-bar
+    flex-grow: 3
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 60%
+    height: 100%
+    input
+      width: 400px
+      outline: none
+      padding: 10px
+    button
+      width: 41px
+      height: 41px
+      background-color: #2b2f33
+      cursor: pointer
+      outline: none
+      border: none
+      i
+        color: white
+        transition: 0.2s
+      &:hover i
+        color: #dd721a
+  .icons
+    flex-grow: 0.5
+    display: flex
+    justify-content: center
+    align-items: center
+    .menu
+      display: flex
+      flex-direction: column
+      position: relative
+      &:nth-child(3)
+        border-right: 0.5px solid black
+      i
+        flex-grow: 0.5
+        display: flex
+        justify-content: center
+        align-items: center
+        font-size: 20px
+        width: 50px
+        height: 50px
+        cursor: pointer
+        transition: 0.2s
+        border-left: 0.5px solid black
+        &:hover
+          color: #dd721a
+      &:hover .drop-down
+        visibility: visible
+        top: 100%
+        z-index: 1
+        opacity: 1
+      .drop-down
+        color: black
+        position: absolute
+        top: 130%
+        left: -50%
+        display: flex
+        flex-direction: column
+        text-align: center
+        background-color: #ffffff
+        box-shadow: 0px 0px 4px 2px grey
+        border: 0.5px solid black
+        transition: 0.1s
+        visibility: hidden
+        opacity: 0
+      .drop-down.user
+        width: 300%
+        a
+          transition: 0.2s
+          text-decoration: none
+          padding: 10px 15px
+          color: black
+          &:hover
+            color: #dd721a
+      .drop-down.language
+        width: 300%
+        .current
+          display: flex
+          justify-content: center
+          align-items: center
+          p
+            padding: 10px
+          img
+            width: 20%
+        .items
+          display: flex
+          justify-content: center
+          align-items: center
+          img
+            width: 40%
+            padding: 10px
+            cursor: pointer
+            &:hover
+              width: 42%
+          p
+            padding: 10px
+            cursor: pointer
+            &:hover
+              color: #dd721a
+      .drop-down.basket
+        width: 250%
+        padding: 10px 5px
+        .color
+          color: #dd721a
+        .item, .total
+          display: flex
+          justify-content: center
+          align-items: center
+          p
+            padding: 5px
+        button
+          margin: 10px
+          width: 80%
+          padding: 2px
+          background-color: white
+          transition: 0.2s
+          cursor: pointer
+          &:hover
+            color: #dd721a
+
+@media screen and ( max-width: 281px )
+  .header
+    height: 12vh
+    .logo
+      width: 25%
+      img
+        display: none
+    .burger
+      margin-left: 10px
+      border: none
+      .hiddenBurger
+        span
+          width: 25px
+          height: 0.5px
+          &:nth-child(1)
+            top: 0
+            left: calc(50% - 10px)
+          &:nth-child(2)
+            top: calc(50% - 0.5px)
+            left: calc(50% - 10px)
+          &:nth-child(3)
+            bottom: 0px
+            left: calc(50% - 10px)
+          &:nth-child(4)
+            display: none
+        .active1
+          transform: translateX(0%)
+        .active2
+          transform: rotate(0)
+        .active3
+          transform: translateX(0)
+
+    .search-bar
+      display: none
+    .icons
+      flex-grow: 4
+      justify-content: flex-end
+      .menu
+        i
+          font-size: 20px
+          border-left: none
+        &:nth-child(2)
+          display: none
+        &:nth-child(3)
+          display: none
+        &:hover .drop-down
+          visibility: visible
+        .drop-down
+        .drop-down.user
+          width: 200%
+          a
+            padding: 10px 5px
+@media screen and ( max-width: 361px )
+  .header
+    width: 100%
+    height: 12vh
+    .logo
+      img
+        display: none
+      p
+        margin-left: 5px
+    .burger
+      margin-left: 10px
+      flex-grow: 1
+      border: none
+      .hiddenBurger
+        height: 25px
+        span
+          width: 25px
+          height: 0.5px
+          &:nth-child(1)
+            top: 0
+            left: calc(50% - 10px)
+          &:nth-child(2)
+            top: calc(50% - 0.5px)
+            left: calc(50% - 10px)
+          &:nth-child(3)
+            bottom: 0px
+            left: calc(50% - 10px)
+          &:nth-child(4)
+            display: none
+        .active1
+          transform: translateX(0%)
+        .active2
+          transform: rotate(0)
+        .active3
+          transform: translateX(0)
+
+    .search-bar
+      display: none
+    .icons
+      flex-grow: 4
+      justify-content: flex-end
+      .menu
+        i
+          font-size: 20px
+          border-left: none
+        &:nth-child(2)
+          display: none
+        &:nth-child(3)
+          display: none
+        &:hover .drop-down
+          visibility: visible
+        .drop-down
+        .drop-down.user
+          width: 200%
+          a
+            padding: 10px 5px
+
+@media screen and( max-width: 600px )
+  .header
+    height: 12vh
+    .logo
+      p
+        font-size: 18px
+    .burger
+      border: none
+      margin: 0
+      .hiddenBurger
+        height: 26px
+        span
+          width: 28px
+          height: 0.5px
+          &:nth-child(1)
+            top: 0
+            left: calc(50% - 10px)
+          &:nth-child(2)
+            top: calc(50% - 0.5px)
+            left: calc(50% - 10px)
+          &:nth-child(3)
+            bottom: 0px
+            left: calc(50% - 10px)
+          &:nth-child(4)
+            display: none
+        .active1
+          transform: translateX(0%)
+        .active2
+          transform: rotate(0)
+        .active3
+          transform: translateX(0)
+
+    .search-bar
+      display: none
+    .icons
+      flex-grow: 4
+      justify-content: flex-end
+      .menu
+        i
+          font-size: 20px
+          border-left: none
+        &:nth-child(2)
+          display: none
+        &:nth-child(3)
+          display: none
+        &:hover .drop-down
+          visibility: visible
+        .drop-down
+        .drop-down.user
+          width: 200%
+          a
+            padding: 10px 5px
+
+@media screen and ( max-width: 800px )
+  .header
+    padding: 10px 20px
+    height: 12vh
+    .logo
+      p
+        font-family: 'Lobster', cursive
+        margin-left: 10px
+        font-size: 15px
+      img
+        width: 30px
+        height: 30px
+    .burger
+      margin-left: 20px
+      width: 50px
+      height: 40px
+      .hiddenBurger
+        width: 30px
+        height: 30px
+        span
+          width: 30px
+          height: 0.5px
+          &:nth-child(1)
+            top: 0px
+            left: calc(50% - 15px)
+          &:nth-child(2)
+            top: calc(50% - 0.5px)
+            left: calc(50% - 15px)
+          &:nth-child(3)
+            bottom: 0px
+            left: calc(50% - 15px)
+          &:nth-child(4)
+            transition-delay: -0.4s
+            bottom: 0px
+            left: -100%
+    .search-bar
+      width: 30%
+      height: 100%
+      input
+        width: 200px
+        padding: 10px
+    .icons
+      .menu
+        .drop-down.basket
+          left: -110%
+
+@media ( max-width: 1025px )
+  .header
+    .burger
+      width: 60px
+      height: 40px
+      margin-left: 15px
+    .logo
+      p
+        font-size: 18px
+    .search-bar
+      width: 40%
+      height: 100%
+      input
+        width: 300px
+        padding: 10px
+      button
+        width: 40px
+        height: 40px
+    .icons
+      .menu
+        .drop-down.basket
+          left: -100%

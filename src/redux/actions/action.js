@@ -21,3 +21,16 @@ export const fetch_data_failure = (error) => {
     payload: error
   }
 }
+
+
+
+export const hideNavBar = () => {
+  return {
+    type: "HIDE_NAVBAR"
+  }
+}
+export const showNavBar = () => {
+  return {
+    type: "SHOW_NAVBAR"
+  }
+}

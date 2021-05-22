@@ -1,0 +1,41 @@
+.slider
+  width: 100%
+  overflow: hidden
+  height: 500px
+  position: relative
+  .wrapper
+    transition: 0.8s ease-out
+    display: flex
+  .add
+    position: relative
+    h1
+      position: absolute
+      top: 10%
+      left: 8%
+      font-size: 50px
+      color: #d4cccc
+    img
+      display: flex
+      width: 100vw
+      z-index: -1
+  .fas
+    position: absolute
+    font-size: 40px
+    color: #d4cccc
+    cursor: pointer
+    z-index: 1
+    width: 50px
+    height: 50px
+    text-align: center
+    line-height: 50px
+    transition: 0.3s
+    &:hover
+      background-color: #d4cccc
+      color: white
+      border-radius: 50%
+  .fa-arrow-right
+    top: calc(50% - 20px)
+    right: 5%
+  .fa-arrow-left
+    top: calc(50% - 20px)
+    left: 5%
