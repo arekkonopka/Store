@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
+
 import shopSvg from '../asset/images/shop.svg'
 import polFlag from '../asset/images/poland.svg'
 import engFlag from '../asset/images/united-kingdom.svg'
+
 import { useDispatch, useSelector } from 'react-redux'
-import { hideNavBar, showNavBar } from '../redux/actions/action'
+import { hideNavBar, showNavBar, usdCurrency, plnCurrency } from '../redux/actions/action'
 
 const Header = () => {
   const [isClick, setIsClick] = useState(false)
 
   const isHide = useSelector(state => state.navBarReducer.isHide)
+  const isUsdCurrency = useSelector(state => state.navBarReducer.isUsdCurrency)
+
 
   const onClickBurger = () => {
     setIsClick(!isClick)
@@ -18,6 +22,13 @@ const Header = () => {
 
   const dispatch = useDispatch()
 
+  const onClickUsdCurrency = () => {
+    dispatch(usdCurrency())
+  }
+  const onClickPlnCurrency = () => {
+    dispatch(plnCurrency())
+
+  }
   return (
     <div className='header'>
       <div className="logo">
@@ -43,9 +54,9 @@ const Header = () => {
         <div className="menu">
           <i className="far fa-user"></i>
           <div className="drop-down user">
-            <a href="">My account</a>
-            <a href="">My whitelist</a>
-            <a href="">Log in</a>
+            <a href="#">My account</a>
+            <a href="#">My whitelist</a>
+            <a href="#">Log in</a>
           </div>
         </div>
         <div className="menu">
@@ -59,10 +70,10 @@ const Header = () => {
               <img src={polFlag} alt="poland flag" />
             </div>
             <div className="current">
-              <p>Currency:</p><p>USD</p>
+              <p>Currency:</p><p>{isUsdCurrency ? 'USD' : "PLN"}</p>
             </div>
             <div className="items">
-              <p>USD</p><p>PLN</p>
+              <p onClick={onClickUsdCurrency}>USD</p><p onClick={onClickPlnCurrency}>PLN</p>
             </div>
           </div>
         </div>

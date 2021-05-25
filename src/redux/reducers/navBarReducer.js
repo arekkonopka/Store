@@ -1,6 +1,7 @@
 
 const initialState = {
-  isHide: false
+  isHide: false,
+  isUsdCurrency: true
 }
 
 const navBarReducer = (state = initialState, action) => {
@@ -9,6 +10,10 @@ const navBarReducer = (state = initialState, action) => {
       return { ...state, isHide: true }
     case "SHOW_NAVBAR":
       return { ...state, isHide: false }
+    case "USD_CURRENCY":
+      return { ...state, isUsdCurrency: true }
+    case "PLN_CURRENCY":
+      return { ...state, isUsdCurrency: false }
     default:
       return { ...state }
   }
