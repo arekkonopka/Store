@@ -5,6 +5,7 @@ import polFlag from '../asset/images/poland.svg'
 import engFlag from '../asset/images/united-kingdom.svg'
 
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from "react-router-dom"
 import { hideNavBar, showNavBar, usdCurrency, plnCurrency } from '../redux/actions/action'
 
 const Header = () => {
@@ -12,6 +13,8 @@ const Header = () => {
 
   const isHide = useSelector(state => state.navBarReducer.isHide)
   const isUsdCurrency = useSelector(state => state.navBarReducer.isUsdCurrency)
+  const quantity = useSelector(state => state.shopBasketReducer.basket.quantity)
+
 
 
   const onClickBurger = () => {
@@ -32,8 +35,10 @@ const Header = () => {
   return (
     <div className='header'>
       <div className="logo">
-        <img src={shopSvg} alt="shop logo" />
-        <p>Your fake shop</p>
+        <Link to="/">
+          <img src={shopSvg} alt="shop logo" />
+          <p>Your fake shop</p>
+        </Link>
         {/* <div>Icons made by <a href="https://www.flaticon.com/authors/nikita-golubev" title="Nikita Golubev">Nikita Golubev</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */}
       </div>
       <div className="burger" onClick={onClickBurger}>
@@ -54,9 +59,9 @@ const Header = () => {
         <div className="menu">
           <i className="far fa-user"></i>
           <div className="drop-down user">
-            <a href="#">My account</a>
+            <Link to='/login'>My account</Link>
             <a href="#">My whitelist</a>
-            <a href="#">Log in</a>
+            <Link to='/login'>Log in</Link>
           </div>
         </div>
         <div className="menu">
@@ -78,20 +83,20 @@ const Header = () => {
           </div>
         </div>
         <div className="menu">
-          <i className="fas fa-shopping-basket"></i>
+          <Link to='/shopBasket'><i className="fas fa-shopping-basket"></i></Link>
           <div className="drop-down basket">
             <div className="item">
-              <p>Items:</p> <p className='color'>1</p>
+              <p>Items:</p> <p className='color'>{quantity}</p>
             </div>
             <div className="total">
               <p>Total</p><p className='color'>0$</p>
             </div>
-            <button>Go to basket</button>
+            <Link to='/shopBasket'><button>Go to basket</button></Link>
           </div>
         </div>
 
       </div>
-    </div>
+    </div >
   )
 }
 

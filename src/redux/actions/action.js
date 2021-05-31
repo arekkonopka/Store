@@ -1,4 +1,4 @@
-
+//fetch
 
 export const fetch_data_request = () => {
   return {
@@ -20,7 +20,7 @@ export const fetch_data_failure = (error) => {
 }
 
 
-
+//navBar
 
 export const hideNavBar = () => {
   return {
@@ -40,5 +40,21 @@ export const usdCurrency = () => {
 export const plnCurrency = () => {
   return {
     type: "PLN_CURRENCY"
+  }
+}
+
+//basket
+
+export const addToBasket = (item) => {
+  return {
+    type: "ADD_TO_BASKET",
+    payload: item
+  }
+}
+
+
+export const removFromBasket = () => {
+  return {
+    type: "REMOVE_FROM_BASKET"
   }
 }

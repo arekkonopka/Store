@@ -35,7 +35,7 @@ const Home = () => {
         {products.map((product) => {
           return (
             <div key={product.id}>
-              <Products img={product.image} title={product.title} price={isUsdCurrency ? product.price : product.pricePln} />
+              <Products img={product.image} title={product.title} price={isUsdCurrency ? product.price : product.pricePln} product={product} />
             </div>
           )
         })}

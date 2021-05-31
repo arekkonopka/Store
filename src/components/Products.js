@@ -1,18 +1,27 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { addToBasket } from '../redux/actions/action'
 
-const Products = ({ img, title, price }) => {
+const Products = ({ img, title, price, product }) => {
   const [load, setLoad] = useState(true)
 
   const loading = useSelector(state => state.fetchReducer.loading)
   const isUsdCurrency = useSelector(state => state.navBarReducer.isUsdCurrency)
 
+  const dispatch = useDispatch()
+
   const loader = () => setLoad(loading)
+
+  const onClickShoppingCart = () => {
+    dispatch(addToBasket(product))
+    // zrobic sprawdzenie zeby sie nie powtarzalo
+  }
+
 
   useEffect(() => {
     loader()
   }, [])
-  console.log(load)
+
   return (
     <div className='product'>
       {load ?
@@ -25,7 +34,7 @@ const Products = ({ img, title, price }) => {
             <p className='price'>Price: <span className="color">{price}{isUsdCurrency ? "$" : "zł"}</span></p>
           </div>
           <div className="goTo">
-            <i className="fas fa-shopping-cart"></i>
+            <i className="fas fa-shopping-cart" onClick={onClickShoppingCart}></i>
             <i className="fas fa-heart"></i>
           </div>
           <span className="span1"></span><span className="span2"></span><span className="span3"></span><span className="span4"></span>

@@ -7,6 +7,8 @@ import Woman from './components/Woman'
 import Accessories from './components/Accessories'
 import About from './components/About'
 import Home from './components/Home';
+import ShopBasket from './components/ShopBasket';
+import LogIn from './components/LogIn';
 
 
 
@@ -14,8 +16,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
       <Router>
+        <Header />
         <Navbar />
         <Switch>
           <Route exact path='/'>
@@ -32,6 +34,12 @@ function App() {
           </Route>
           <Route path='/about'>
             <About />
+          </Route>
+          <Route path='/shopBasket'>
+            <ShopBasket />
+          </Route>
+          <Route>
+            <LogIn path='/login' />
           </Route>
         </Switch>
       </Router>
