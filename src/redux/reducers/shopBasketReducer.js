@@ -2,7 +2,7 @@ const initialState = {
   basket: {
     quantity: 0,
     total: 0,
-    items: ["item"]
+    items: []
   }
 }
 
@@ -19,7 +19,7 @@ const shopBasketReducer = (state = initialState, action) => {
         basket: {
           ...state.basket,
           quantity: state.basket.quantity + 1,
-          total: state.basket.items.reduce((result, price) => result += price),
+          // total: state.basket.items.reduce((result, price) => result += price),
           // zrobic total
           items: state.basket.items.concat(item)
         }

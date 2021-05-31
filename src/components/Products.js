@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { addToBasket } from '../redux/actions/action'
+import { addToBasket, addInfo, removeInfo } from '../redux/actions/action'
+
 
 const Products = ({ img, title, price, product }) => {
   const [load, setLoad] = useState(true)
+
 
   const loading = useSelector(state => state.fetchReducer.loading)
   const isUsdCurrency = useSelector(state => state.navBarReducer.isUsdCurrency)
@@ -14,7 +16,10 @@ const Products = ({ img, title, price, product }) => {
 
   const onClickShoppingCart = () => {
     dispatch(addToBasket(product))
-    // zrobic sprawdzenie zeby sie nie powtarzalo
+    dispatch(addInfo("green", "Added to Basket"))
+    setTimeout(() => {
+      dispatch(removeInfo("green", "Added to Basket"))
+    }, 4000);
   }
 
 
@@ -24,6 +29,7 @@ const Products = ({ img, title, price, product }) => {
 
   return (
     <div className='product'>
+
       {load ?
         "Loading..."
         :
@@ -39,8 +45,8 @@ const Products = ({ img, title, price, product }) => {
           </div>
           <span className="span1"></span><span className="span2"></span><span className="span3"></span><span className="span4"></span>
         </div>
-
       }
+
 
     </div >
   )

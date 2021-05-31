@@ -58,3 +58,18 @@ export const removFromBasket = () => {
     type: "REMOVE_FROM_BASKET"
   }
 }
+
+//info
+export const addInfo = (color, message) => {
+  return {
+    type: "Add-info",
+    payloadColor: color,
+    payloadMessage: message,
+  }
+}
+
+export const removeInfo = () => {
+  return {
+    type: "Remove-info",
+  }
+}

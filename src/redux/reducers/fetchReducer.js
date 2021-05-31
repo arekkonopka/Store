@@ -1,5 +1,3 @@
-
-
 const initState = {
   products: [],
   loading: false,

@@ -1,13 +1,12 @@
 import React from 'react'
 
-const BasketProducts = () => {
+const BasketProducts = ({ image, title, price }) => {
   return (
     <div>
       <div className="products-in-basket">
         <div className='product-describe'>
-          <div className="img"></div>
-          {/* <img src={ } alt="product" /> */}
-          <p className="title">title</p>
+          <img src={image} alt={title} />
+          <p className="title">{title}</p>
         </div>
         <div className="buttons">
           <button>Remove</button>
@@ -20,7 +19,7 @@ const BasketProducts = () => {
             <option value="2">2</option>
             <option value="3">3</option>
           </select>
-          <p>Price: 0</p>
+          <p>Price: {price}</p>
         </div>
       </div>
       <div className='sum'>
